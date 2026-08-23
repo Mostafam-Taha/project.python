@@ -19,3 +19,21 @@ if result == -1:
     print("Not found")
 else:
     print("Found")
+
+# Linear Search
+def linearsearch(array, search):
+    for index in range(len(array)):
+        if array[index] == search:
+            return True
+    return -1
+
+
+result2 = linearsearch(numbers, search)
+if result2 == -1:
+    print("Not found")
+else:
+    print("Found")
+
+numbers = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+search = 20
+
