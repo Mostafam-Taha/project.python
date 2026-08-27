@@ -1,6 +1,7 @@
 # Admin or User\
 import os
 import json
+import admin
 
 file_system = "Account_user.json"
 def load_data():
@@ -19,7 +20,7 @@ class Account_Manager:
 
     def admin_or_user(self):
         if self.option_user_or_admin == "admin":
-            pass
+            admin.sgin_up_admin()
         elif self.option_user_or_admin == "user":
             self.account_user()
         else:
@@ -37,13 +38,12 @@ class Account_Manager:
             password = input("Please ente your password: ")
             currunt_password = input("Please enter your currunt password: ")
             if password == currunt_password:
-                print("Done: created account success")
                 break
             else:
                 print("Error: Faild")
                 continue
 
-        new_id = max([emp["ID"] for emp in data], default=0) + 1
+        new_id = max([emp["id"] for emp in data], default=0) + 1
         data_user = {
             "id": new_id,
             "Type Account": "User",
@@ -53,6 +53,9 @@ class Account_Manager:
 
         data.append(data_user)
         save_data(data)
+        if True:
+            print("Done: created account success")
 
+# class Online_Store:
 op_us_ad = input("Your admin or user: ")
 Account_Manager(op_us_ad).admin_or_user()
